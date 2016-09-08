@@ -10,7 +10,7 @@ angular
       .state('home.new', {
         url: 'new',
         templateUrl: 'app/templates/home/new.html',
-        controller: 'ExpensesController as ctrl',
+        controller: 'NewExpenseController as ctrl',
       })
       .state('home.expenses',{
         url: 'expenses',
