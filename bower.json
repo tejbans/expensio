@@ -1,0 +1,17 @@
+{
+  "name": "expensio",
+  "homepage": "https://github.com/tejbans/expensio",
+  "authors": [
+    "tejbans <singh.tejbans@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
