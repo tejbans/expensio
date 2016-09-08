@@ -12,4 +12,4 @@ function ExpensesController() {
 
 angular
   .module('app')
-  .controller('TasksController', TasksController)
+  .controller('ExpensesController', ExpensesController)
