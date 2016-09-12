@@ -24,7 +24,7 @@ angular
       })
       .state('home.edit',{
         url: 'edit/:id',
-        templateUrl: 'home/edit.html',
+        templateUrl: 'app/templates/home/edit.html',
         controller: 'EditExpenseController as ctrl'
       });
     $urlRouterProvider.otherwise('/');
