@@ -21,6 +21,11 @@ angular
         url: 'expense/:id',
         templateUrl: 'app/templates/home/show.html',
         controller: 'ViewExpenseController as ctrl'
+      })
+      .state('home.edit',{
+        url: 'edit/:id',
+        templateUrl: 'home/edit.html',
+        controller: 'EditExpenseController as ctrl'
       });
     $urlRouterProvider.otherwise('/');
   });
