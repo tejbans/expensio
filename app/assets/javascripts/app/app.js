@@ -16,11 +16,11 @@ angular
         url: 'expenses',
         templateUrl: 'app/templates/home/expenses.html',
         controller: 'ExpensesController as ctrl'
-      });
+      })
       .state('home.expense', {
         url: 'expense/:id',
         templateUrl: 'app/templates/home/show.html',
         controller: 'ViewExpenseController as ctrl'
-      })
+      });
     $urlRouterProvider.otherwise('/');
   });

@@ -5,6 +5,6 @@ angular
   function ViewExpenseController(Expense, $stateParams){
     var ctrl = this;
 
-    ctrl.expense = Expense.get({id: #stateParams.id});
+    ctrl.expense = Expense.get({id: $stateParams.id});
 
   }
