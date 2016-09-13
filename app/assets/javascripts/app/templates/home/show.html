@@ -1,6 +1,5 @@
-<h3>{{ ctrl.expense.name }}</h3>
+<strong>{{ ctrl.expense.name | uppercase}}</strong><a href="#" ui-sref="home.edit({id: ctrl.expense.id})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> 
 <p>
-  {{ctrl.expense.amount}}
+  Amount: {{ctrl.expense.amount | currency }}
 </p>
 
-<a href="#" ui-sref="home.edit({id: ctrl.expense.id})">Edit Expense</a>
