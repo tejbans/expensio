@@ -2,7 +2,7 @@
 <h3>My Expenses</h3>
 <ul>
   <li ng-repeat="expense in ctrl.expenses">
-    <strong>{{ expense.name }}</strong> | {{ expense.amount | currency }} |
+    <strong>{{ expense.name | uppercase }}</strong> | {{ expense.amount | currency }} |
    
     <a href="#" ui-sref='home.expense({id: expense.id})'><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a> |
     <a href="#" ui-sref='home.edit({id: expense.id})'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> |
