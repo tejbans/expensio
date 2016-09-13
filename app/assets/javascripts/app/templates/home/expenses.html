@@ -1,7 +1,8 @@
 
-<h3>My Expenses</h3>
+<h3>My Expenses</h3><input type="text" ng-model="ctrl.search" class="search-query" id="expenses_search" placeholder="Search">
+
 <ul>
-  <li ng-repeat="expense in ctrl.expenses">
+  <li ng-repeat="expense in ctrl.expenses | filter: ctrl.search | orderBy:'name'">
     <strong>{{ expense.name | uppercase }}</strong> | {{ expense.amount | currency }} |
    
     <a href="#" ui-sref='home.expense({id: expense.id})'><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a> |
