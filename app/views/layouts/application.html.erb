@@ -8,8 +8,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="app">
-
-<div class="angular-view-container" ui-view></div>
+<nav class="navbar navbar-default">
+  <a class="navbar-brand" href="#">Expensio</a>
+  <ul class="nav navbar-nav">
+    <li><a href="#" ui-sref="home.new" ui-sref-active="active">New Expense</a></li>
+    <li><a ui-sref="home.expenses" ui-sref-active="active">My Expenses</a></li>
+  </ul>
+  </nav>
+<div class="container" ui-view></div>
 
 </body>
 </html>
