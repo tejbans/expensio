@@ -36,7 +36,7 @@ module Api
 
   private
     def expense_params
-      params.require(:expense).permit(:name, :amount)
+      params.require(:expense).permit(:name, :amount, :description)
     end
 
   end
