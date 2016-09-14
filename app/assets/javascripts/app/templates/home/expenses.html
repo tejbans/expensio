@@ -1,12 +1,23 @@
 
 <h3>My Expenses <small><input type="text" ng-model="ctrl.search" class="search-query" id="expenses_search" placeholder="Search"></small></h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Actions</th>
+    <tr>
+  </thead>
 
-<ul>
-  <li ng-repeat="expense in ctrl.expenses | filter: ctrl.search | orderBy:'name'">
-    <strong>{{ expense.name | uppercase }}</strong> | {{ expense.amount | currency }} |
-   
+<tbody>
+  <tr ng-repeat="expense in ctrl.expenses | filter: ctrl.search | orderBy:'name'">
+    <td><strong>{{ expense.name | uppercase }}</strong></td>
+    <td>{{ expense.amount | currency }}</td>
+    <td>
     <a href="#" ui-sref='home.expense({id: expense.id})'><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a> |
     <a href="#" ui-sref='home.edit({id: expense.id})'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> |
     <a href="#" ng-click='ctrl.deleteExpense(expense)'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-  </li>
-</ul>
+    </td>
+  </tr>
+</tbody>
+</table>
