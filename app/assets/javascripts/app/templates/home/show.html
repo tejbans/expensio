@@ -5,6 +5,8 @@
 <label>Amount: </label>
   {{ctrl.expense.amount | currency }}<br>
 <label>Created At: </label>
-  {{ctrl.expense.created_at | date:'medium'}}
+  {{ctrl.expense.created_at | date:'medium'}}<br>
+  <label>Description: </label>
+  {{ ctrl.expense.description}}
 </div>
 
