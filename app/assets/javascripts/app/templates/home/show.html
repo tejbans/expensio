@@ -1,5 +1,10 @@
-<strong>{{ ctrl.expense.name | uppercase}}</strong> <a href="#" ui-sref="home.edit({id: ctrl.expense.id})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> 
-<p>
-  Amount: {{ctrl.expense.amount | currency }}
-</p>
+<div class="jumbotron">
+<h3>Expense Details <small><a href="#" ui-sref="home.edit({id: ctrl.expense.id})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small></h3>
+<label>Name: </label>
+{{ ctrl.expense.name | uppercase}} <br>
+<label>Amount: </label>
+  {{ctrl.expense.amount | currency }}<br>
+<label>Created At: </label>
+  {{ctrl.expense.created_at | date:'medium'}}
+</div>
 
