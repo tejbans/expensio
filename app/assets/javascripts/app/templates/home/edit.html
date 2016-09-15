@@ -1,11 +1,20 @@
 <h3>Edit Expense</h3>
 
-<form validate ng-submit='ctrl.editExpense()'>
-<label>Name</label>
-<input type="text" ng-model="ctrl.expense.name">
-<label>Amount</label>
-<input type="text" ng-model="ctrl.expense.amount"><br>
-<label>Description</label><br>
-<textarea ng-model="ctrl.expense.description"></textarea><br>
-<input type="submit" value="Update Expense">
+<form validate ng-submit='ctrl.editExpense()' name='editForm'>
+  <div class="form-group" ng-class="{'has-error': editForm.name.$invalid && editForm.name.$touched}">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" ng-model="ctrl.expense.name" style="width: 300px" required>
+    <span ng-show="editForm.name.$error.required && editForm.name.$touched" class="help-inline">Name is Required</span>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': editForm.amount.$invalid && editForm.amount.$touched}">
+    <label>Amount</label>
+    <input type="number" step="0.01" class="form-control" name="amount" ng-model="ctrl.expense.amount" style="width: 300px" required>
+    <span ng-show="editForm.amount.$error.required && editForm.amount.$touched" class="help-inline">Amount is Required</span>
+  </div>
+
+  <label>Description</label><br>
+  <textarea ng-model="ctrl.expense.description" placeholder="Optional" style="width: 300px"></textarea><br>
+  <a href="#/expenses" class="btn btn-default">Cancel</a>
+  <input type="submit" value="Update Expense" class="btn btn-primary">
 </form>
