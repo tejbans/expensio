@@ -1,11 +1,19 @@
 <h3>Add Expense</h3>
-<form validate ng-submit="ctrl.addExpense()">
-  <label>Name</label>
-  <input type="text" ng-model="ctrl.expense.name" required>
-  <label>Amount</label>
-  <input type="number" ng-model="ctrl.expense.amount" required>
-  <label>Description</label>
-  <input type="text" ng-model="ctrl.expense.description" required>
-  <input type="submit" value="Add Expense">
+<form ng-submit="ctrl.addExpense()" name="newForm">
+  <div class="form-group" ng-class="{'has-error': newForm.name.$invalid && newForm.name.$touched}">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" ng-model="ctrl.expense.name" style="width: 300px" required>
+    <span ng-show="newForm.name.$error.required && newForm.name.$touched" class="help-inline">Name is Required</span>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': newForm.amount.$invalid && newForm.amount.$touched}">
+    <label>Amount</label>
+    <input type="number" class="form-control" name="amount" ng-model="ctrl.expense.amount" style="width: 300px" required>
+    <span ng-show="newForm.amount.$error.required && newForm.amount.$touched" class="help-inline">Amount is Required</span>
+</div>
+
+  <label>Description</label><br>
+  <textarea ng-model="ctrl.expense.description" placeholder="Optional" style="width: 300px"></textarea><br>
+  <input type="submit" value="Add Expense" class="btn btn-primary">
 </form>
 
