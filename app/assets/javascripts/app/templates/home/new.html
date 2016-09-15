@@ -8,7 +8,7 @@
 
   <div class="form-group" ng-class="{'has-error': newForm.amount.$invalid && newForm.amount.$touched}">
     <label>Amount</label>
-    <input type="number" class="form-control" name="amount" ng-model="ctrl.expense.amount" style="width: 300px" required>
+    <input type="number" step="0.01" class="form-control" name="amount" ng-model="ctrl.expense.amount" style="width: 300px" required>
     <span ng-show="newForm.amount.$error.required && newForm.amount.$touched" class="help-inline">Amount is Required</span>
 </div>
 
