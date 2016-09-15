@@ -17,3 +17,4 @@ Clone this directory to your local environment and execute:
 Bug reports and pull requests are welcome on GitHub at https://github.com/tejbans/expensio
 
 ##License
+[MIT License.](https://github.com/tejbans/expensio/blob/master/LICENSE) Copyright 2016 Tejbans
