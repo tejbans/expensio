@@ -12,9 +12,12 @@ function ExpensesController(Expense, $location, $state) {
   } 
   
   ctrl.deleteExpense = function(expense){
-    expense.$delete(function(){
-      $state.go($state.current, {reload: true});
-    });
+    var firm = confirm("Are you sure?");
+    if (firm == true){
+      expense.$delete(function(){
+      $state.go($state.current, {}, {reload: true});
+      });
+    };
   };
 };
 
