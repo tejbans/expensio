@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Category</th>
       <th>Amount</th>
       <th>Actions</th>
     <tr>
@@ -12,6 +13,7 @@
 <tbody>
   <tr ng-repeat="expense in ctrl.expenses | filter: ctrl.search | orderBy:'name'">
     <td><strong>{{ expense.name | uppercase }}</strong></td>
+    <td>{{ expense.category.name }}</td>
     <td>{{ expense.amount | currency }}</td>
     <td>
     <a href="#" ui-sref='home.expense({id: expense.id})'><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a> |
@@ -21,6 +23,7 @@
   </tr>
   <tr class="info">
     <td>Total:</td>
+    <td></td>
     <td>{{ctrl.getTotal() | currency }}</td>
     <td></td>
 </tbody>
