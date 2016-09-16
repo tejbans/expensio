@@ -11,6 +11,17 @@ function ExpensesController(Expense, Category, $location, $state) {
     };
     return total;
   } 
+
+  ctrl.getCategoryTotal = function(category){
+    var catTotal = 0;
+     ctrl.expenses.forEach(function(exp){
+       if (exp.category.name == category){
+        catTotal += exp.amount;
+       }
+     });
+      return catTotal;
+  }
+
   
   ctrl.deleteExpense = function(expense){
     var firm = confirm("Are you sure you want to delete this item?");
