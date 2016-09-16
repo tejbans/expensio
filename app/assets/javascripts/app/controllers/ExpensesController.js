@@ -1,7 +1,8 @@
-function ExpensesController(Expense, $location, $state) {
+function ExpensesController(Expense, Category, $location, $state) {
   var ctrl = this;
  
   ctrl.expenses = Expense.query();
+  ctrl.categories = Category.query();
   
   ctrl.getTotal = function(){
     var total = 0;
