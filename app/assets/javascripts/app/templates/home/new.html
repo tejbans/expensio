@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <label>Category</label>
-    <select class="form-control" ng-model="ctrl.expense.category" ng-options="category for category in categories" style="width: 300px" required></select>
+    <select class="form-control" ng-model="ctrl.expense.category_id" ng-options="category.id as category.name for category in ctrl.categories" style="width: 300px" required></select>
   </div>
 
   <div class="form-group" ng-class="{'has-error': newForm.amount.$invalid && newForm.amount.$touched}">
@@ -22,4 +22,7 @@
   <a href="#/expenses" class="btn btn-default">Cancel</a>
   <input type="submit" value="Add Expense" class="btn btn-primary">
 </form>
+
+
+
 
