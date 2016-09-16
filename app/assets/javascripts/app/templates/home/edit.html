@@ -7,6 +7,11 @@
     <span ng-show="editForm.name.$error.required && editForm.name.$touched" class="help-inline">Name is Required</span>
   </div>
 
+  <div class="form-group">
+    <label>Category</label>
+    <select class="form-control" ng-model="ctrl.expense.category_id" ng-options="category.id as category.name for category in ctrl.categories" style="width: 300px" required></select>
+  </div>
+
   <div class="form-group" ng-class="{'has-error': editForm.amount.$invalid && editForm.amount.$touched}">
     <label>Amount</label>
     <input type="number" step="0.01" class="form-control" name="amount" ng-model="ctrl.expense.amount" style="width: 300px" required>
