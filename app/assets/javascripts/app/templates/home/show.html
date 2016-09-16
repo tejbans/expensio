@@ -1,12 +1,13 @@
 <div class="jumbotron">
-<h3>Expense Details <small><a href="#" ui-sref="home.edit({id: ctrl.expense.id})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small></h3>
-<label>Name: </label>
-{{ ctrl.expense.name | uppercase}} <br>
-<label>Amount: </label>
-  {{ctrl.expense.amount | currency }}<br>
-<label>Created At: </label>
-  {{ctrl.expense.created_at | date:'medium'}}<br>
+  <h3>Expense Details <small><a href="#" ui-sref="home.edit({id: ctrl.expense.id})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small></h3>
+  <label>Name: </label>
+  {{ ctrl.expense.name | uppercase}} <br>
+  <label>Amount: </label>
+    {{ctrl.expense.amount | currency }}<br>
+  <label>Category: </label>
+    {{ ctrl.expense.category.name}}<br>
+  <label>Created At: </label>
+    {{ctrl.expense.created_at | date:'medium'}}<br>
   <label>Description: </label>
-  {{ ctrl.expense.description}}
+    {{ ctrl.expense.description}}
 </div>
-
