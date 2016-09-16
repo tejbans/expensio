@@ -5,11 +5,11 @@ module Api
     respond_to :json
 
     def index
-      respond_with(Expense.all)
+      respond_with(Expense.all, include: :category)
     end
 
     def show
-      respond_with(Expense.find(params[:id]))
+      respond_with(Expense.find(params[:id]), include: :category)
     end
 
     def create
@@ -36,7 +36,7 @@ module Api
 
   private
     def expense_params
-      params.require(:expense).permit(:name, :amount, :description)
+      params.require(:expense).permit(:name, :amount, :description, :category_id)
     end
 
   end
