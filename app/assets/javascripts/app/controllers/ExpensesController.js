@@ -1,18 +1,12 @@
 function ExpensesController(Expense, Category, $location, $state) {
   var ctrl = this;
-  ctrl.chartlabels = [];
+  ctrl.chartLabels = [];
   ctrl.chartData =[];
+  ctrl.showbtn = true;
+  ctrl.options = {legend: {display: true}};
   
   ctrl.expenses = Expense.query();
   ctrl.categories = Category.query();
-
-  ctrl.getChartLabels = function(){
-    ctrl.categories.forEach(function(cat){
-     ctrl.chartlabels.push(cat.name);
-     ctrl.chartData.push(ctrl.getCategoryTotal(cat.name));
-    });
-  }
-
 
   ctrl.getCategoryTotal = function(category){
     var catTotal = 0;
@@ -24,7 +18,6 @@ function ExpensesController(Expense, Category, $location, $state) {
       return catTotal;
   }
 
-  
 
   ctrl.getTotal = function(){
     var total = 0;
@@ -44,6 +37,16 @@ function ExpensesController(Expense, Category, $location, $state) {
       });
     };
   };
+
+   ctrl.getChartInfo = function(){
+      ctrl.showbtn = false;
+    ctrl.categories.forEach(function(cat){
+     ctrl.chartLabels.push(cat.name);
+     ctrl.chartData.push(ctrl.getCategoryTotal(cat.name));
+    });
+  }
+
+     
 };
 
 
