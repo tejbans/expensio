@@ -38,8 +38,8 @@ function ExpensesController(ExpenseService, CategoryService, $location, $state) 
   ctrl.deleteExpense = function(expense){
     var firm = confirm("Are you sure you want to delete this item?");
     if (firm == true){
-      expense.$delete(function(){
-      $location.path('expenses');
+      ExpenseService.deleteExpense(expense.id).then(function(res){
+        $location.path('expenses');
       });
     };
   };
