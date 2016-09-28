@@ -2,9 +2,10 @@ angular
   .module('app')
   .controller('ViewExpenseController', ViewExpenseController)
 
-  function ViewExpenseController(Expense, $stateParams){
+  function ViewExpenseController(ExpenseService, $stateParams){
     var ctrl = this;
 
-    ctrl.expense = Expense.get({id: $stateParams.id});
-
+    ExpenseService.readExpense($stateParams.id).then(function(res){
+      ctrl.expense = res.data;
+    });
   }
