@@ -2,24 +2,24 @@
 <form ng-submit="ctrl.addExpense()" name="newForm">
   <div class="form-group" ng-class="{'has-error': newForm.name.$invalid && newForm.name.$touched}">
     <label>Name</label>
-    <input type="text" class="form-control" name="name" ng-model="ctrl.expense.name" style="width: 300px" required>
+    <input type="text" class="form-control" name="name" ng-model="ctrl.name" style="width: 300px" required>
     <span ng-show="newForm.name.$error.required && newForm.name.$touched" class="help-inline">Name is Required</span>
   </div>
 
   <div class="form-group" ng-class="{'has-error': newForm.category.$invalid && newForm.category.$touched}">
     <label>Category</label>
-    <select name="category" class="form-control" ng-model="ctrl.expense.category_id" ng-options="category.id as category.name for category in ctrl.categories" style="width: 300px" required></select>
+    <select name="category" class="form-control" ng-model="ctrl.category_id" ng-options="category.id as category.name for category in ctrl.categories" style="width: 300px" required></select>
     <span ng-show="newForm.category.$error.required && newForm.name.$touched" class="help-inline">Category is Required</span>
   </div>
 
   <div class="form-group" ng-class="{'has-error': newForm.amount.$invalid && newForm.amount.$touched}">
     <label>Amount</label>
-    <input type="number" step="0.01" class="form-control" name="amount" ng-model="ctrl.expense.amount" style="width: 300px" required>
+    <input type="number" step="0.01" class="form-control" name="amount" ng-model="ctrl.amount" style="width: 300px" required>
     <span ng-show="newForm.amount.$error.required && newForm.amount.$touched" class="help-inline">Amount is Required</span>
 </div>
 
   <label>Description</label><br>
-  <textarea ng-model="ctrl.expense.description" placeholder="Optional" style="width: 300px"></textarea><br>
+  <textarea ng-model="ctrl.description" placeholder="Optional" style="width: 300px"></textarea><br>
   <a href="#/expenses" class="btn btn-default">Cancel</a>
   <input type="submit" value="Add Expense" class="btn btn-primary">
 </form>
