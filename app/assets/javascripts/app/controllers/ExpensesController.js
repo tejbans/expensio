@@ -1,12 +1,17 @@
-function ExpensesController(Expense, Category, $location, $state) {
+function ExpensesController(ExpenseService, CategoryService, $location, $state) {
   var ctrl = this;
   ctrl.chartLabels = [];
   ctrl.chartData =[];
   ctrl.showbtn = true;
   ctrl.options = {legend: {display: true}};
   
-  ctrl.expenses = Expense.query();
-  ctrl.categories = Category.query();
+  ExpenseService.getExpenses().then(function(res){
+    ctrl.expenses = res.data;
+  });
+
+  CategoryService.getCategories().then(function(res){
+    ctrl.categories = res.data;
+  });
 
   ctrl.getCategoryTotal = function(category){
     var catTotal = 0;
