@@ -2,18 +2,33 @@ angular
   .module('app')
   .controller('NewExpenseController', NewExpenseController)
 
-  function NewExpenseController(Expense, Category, $location){
+  function NewExpenseController(ExpenseService, CategoryService, $location){
     var ctrl = this;
     
-    ctrl.categories = Category.query();
-    ctrl.expense = new Expense();
+    CategoryService.getCategories().then(function(res){
+      ctrl.categories = res.data;
+    });
+
+   // ctrl.expense = new Expense();
     
+    ctrl.addExpense = function(){
+      var params={
+        name: ctrl.name,
+        category_id: ctrl.category_id,
+        amount: ctrl.amount,
+        description: ctrl.description
+      }
+
+      ExpenseService.createExpense(params).then(function(response){
+        console.log(response.data);
+      })
+    }
    
   
 
-    ctrl.addExpense = function(){
-     ctrl.expense.$save(function(){
-        $location.path('expenses');
-     });
-    };
+    //ctrl.addExpense = function(){
+    // ctrl.expense.$save(function(){
+     //   $location.path('expenses');
+    // });
+    //};
   }
