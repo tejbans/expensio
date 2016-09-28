@@ -15,7 +15,12 @@ angular
       .state('home.expenses',{
         url: 'expenses',
         templateUrl: 'app/templates/home/expenses.html',
-        controller: 'ExpensesController as ctrl'
+        controller: 'ExpensesController as ctrl',
+        resolve: {
+          expenses: function(ExpenseService){
+            return ExpenseService.getExpenses();
+          }
+        }
       })
       .state('home.expense', {
         url: 'expense/:id',

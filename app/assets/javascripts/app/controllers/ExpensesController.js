@@ -4,6 +4,7 @@ function ExpensesController(ExpenseService, CategoryService, $location, $state) 
   ctrl.chartData =[];
   ctrl.showbtn = true;
   ctrl.options = {legend: {display: true}};
+  ctrl.expenses =[];
   
   ExpenseService.getExpenses().then(function(res){
     ctrl.expenses = res.data;
@@ -26,9 +27,9 @@ function ExpensesController(ExpenseService, CategoryService, $location, $state) 
 
   ctrl.getTotal = function(){
     var total = 0;
-    for (var i = 0; i< ctrl.expenses.length; i++) {
-      total += ctrl.expenses[i].amount;
-    };
+    ctrl.expenses.forEach(function(exp) {
+      total += exp.amount;
+    });
     return total;
   } 
 
