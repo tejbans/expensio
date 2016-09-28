@@ -1,4 +1,4 @@
-function ExpensesController(ExpenseService, CategoryService, $location, $state) {
+function ExpensesController(ExpenseService, CategoryService, $location, $scope) {
   var ctrl = this;
   ctrl.chartLabels = [];
   ctrl.chartData =[];
@@ -33,7 +33,18 @@ function ExpensesController(ExpenseService, CategoryService, $location, $state) 
     return total;
   } 
 
+  ctrl.addTen = function(expense){
+    var params={amount: expense.amount + 10};
+    ExpenseService.updateExpense(params, expense.id).then(function(response){
+         ctrl.updateExpenses();
+    });
+  }
 
+  ctrl.updateExpenses = function(){
+    ExpenseService.getExpenses().then(function(res){
+    ctrl.expenses = res.data;
+    });
+  }
   
   ctrl.deleteExpense = function(expense){
     var firm = confirm("Are you sure you want to delete this item?");
