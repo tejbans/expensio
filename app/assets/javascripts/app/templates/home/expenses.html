@@ -1,5 +1,5 @@
 <div class="col-md-8" >
-<h3>My Expenses <small><input type="text" ng-model="ctrl.search" class="search-query" id="expenses_search" placeholder="Search"></small></h3>
+<h3>My Expenses <small><input type="text" ng-model="ctrl.search" class="search-query" id="expenses_search" placeholder="Search"> Net Total: {{ctrl.getTotal(ctrl.expenses) | currency }}</small></h3>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -11,9 +11,9 @@
   </thead>
 
 <tbody>
-  <tr ng-repeat="expense in ctrl.expenses | filter: ctrl.search | orderBy:'name'">
+  <tr ng-repeat="expense in ctrl.filteredExpenses  | filter: ctrl.search | orderBy:'name'">
     <td><strong>{{ expense.name | uppercase }}</strong></td>
-    <td>{{ expense.category.name }}</td>
+    <td><select name="category"  ng-model="expense.category_id" ng-change="ctrl.updateExp(expense)" ng-options="category.id as category.name for category in ctrl.categories" style="width: 300px" required></select></td>
     <td>{{ expense.amount | currency }}</td>
     <td>
     <a href="#" ui-sref='home.expense({id: expense.id})'><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a> |
@@ -25,8 +25,9 @@
   <tr class="info">
     <td>Total:</td>
     <td></td>
-    <td>{{ctrl.getTotal() | currency }}</td>
+    <td>{{ctrl.catTotal | currency}} <strong ng-if="ctrl.selectedCategory"> is {{ctrl.catPercent | number:0}}% of total expenses</strong> </td>
     <td></td>
+    </tr>
 </tbody>
 </table>
 </div>
@@ -36,6 +37,12 @@
     <canvas id="pie" class="chart chart-pie"
       chart-data="ctrl.chartData" chart-labels="ctrl.chartLabels" chart-options="ctrl.options">
     </canvas> 
+    <div>
+      <label>Select Category</label>
+      <select ng-change="ctrl.getExpensesByCat(ctrl.selectedCategory)" ng-model="ctrl.selectedCategory" ng-options="category.id as category.name for category in ctrl.categories" style="width: 300px">
+        <option value="">All Categories</option>
+      </select>
+    </div>
 </div>
 
 
